@@ -10,6 +10,7 @@ Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://www.digip.org/jansson/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	46ac93bec48aacf207b67b51c8fbf7f1
 URL:		http://www.digip.org/jansson/
 BuildRequires:	autoconf
 BuildRequires:	automake
