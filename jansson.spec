@@ -4,6 +4,7 @@
 %bcond_without	static_libs	# don't build static libraries
 #
 Summary:	C library for encoding, decoding and manipulating JSON data
+Summary(pl.UTF-8):	Biblioteka C do kodowania, dekodowania i obróbki danych JSON
 Name:		jansson
 Version:	2.5
 Release:	1
@@ -21,12 +22,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Jansson is a C library for encoding, decoding and manipulating JSON
 data. It features:
-
 - Simple and intuitive API and data model
 - Comprehensive documentation
 - No dependencies on other libraries
 - Full Unicode support (UTF-8)
 - Extensive test suite
+
+%description -l pl.UTF-8
+Jansson to biblioteka C do kodowania, dekodowania oraz obróbki danych
+JSON. Cechują ją:
+- proste i intuicyjne API oraz model danych
+- wyczerpująca dokumentacja
+- brak zależności od innych bibliotek
+- pełna obsługa Unicode (UTF-8)
+- obszerny zestaw testów
 
 %package devel
 Summary:	Header files for %{name} library
@@ -58,7 +67,7 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
 Group:		Documentation
 
 %description apidocs
-API and internal documentation for %{name} library.
+API documentation for %{name} library.
 
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki %{name}.
@@ -86,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT/%{_libdir}/lib%{name}.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libjansson.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,19 +106,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES README.rst
-%attr(755,root,root) %{_libdir}/lib%{name}.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib%{name}.so.4
+%attr(755,root,root) %{_libdir}/libjansson.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libjansson.so.4
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib%{name}.so
-%{_includedir}/%{name}*.h
-%{_pkgconfigdir}/%{name}.pc
+%attr(755,root,root) %{_libdir}/libjansson.so
+%{_includedir}/jansson*.h
+%{_pkgconfigdir}/jansson.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib%{name}.a
+%{_libdir}/libjansson.a
 %endif
 
 %if %{with apidocs}
