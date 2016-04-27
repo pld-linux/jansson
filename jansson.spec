@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	static_libs	# don't build static libraries
-#
+
 Summary:	C library for encoding, decoding and manipulating JSON data
 Summary(pl.UTF-8):	Biblioteka C do kodowania, dekodowania i obróbki danych JSON
 Name:		jansson
 Version:	2.7
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries
 Source0:	http://www.digip.org/jansson/releases/%{name}-%{version}.tar.bz2
@@ -65,6 +65,9 @@ Statyczna biblioteka %{name}.
 Summary:	%{name} API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for %{name} library.
