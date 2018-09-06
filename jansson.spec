@@ -7,11 +7,12 @@ Summary:	C library for encoding, decoding and manipulating JSON data
 Summary(pl.UTF-8):	Biblioteka C do kodowania, dekodowania i obróbki danych JSON
 Name:		jansson
 Version:	2.11
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://www.digip.org/jansson/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	289ca8cbd2df31de9bda7e5220754d25
+Patch0:		0017-Fix-error-handling-in-json_pack.patch
 URL:		http://www.digip.org/jansson/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
@@ -77,6 +78,7 @@ Dokumentacja API biblioteki %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
