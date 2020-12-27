@@ -6,16 +6,17 @@
 Summary:	C library for encoding, decoding and manipulating JSON data
 Summary(pl.UTF-8):	Biblioteka C do kodowania, dekodowania i obróbki danych JSON
 Name:		jansson
-Version:	2.13
+Version:	2.13.1
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://digip.org/jansson/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	64fd100f215c502607a4b0ed531ecb5c
+# Source0-md5:	e343e5b2e8fac568a00a8ca36dc01ebe
 URL:		http://digip.org/jansson/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	libtool
+BuildRequires:	rpmbuild(macros) >= 1.752
 %{?with_apidocs:BuildRequires:	sphinx-pdg}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,9 +66,7 @@ Statyczna biblioteka %{name}.
 Summary:	%{name} API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 API documentation for %{name} library.
