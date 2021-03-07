@@ -66,7 +66,7 @@ Statyczna biblioteka %{name}.
 Summary:	%{name} API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki %{name}
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API documentation for %{name} library.
